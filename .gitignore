@@ -174,5 +174,10 @@ cython_debug/
 .pypirc
 
 # Custom
-data/*
-!data/.gitkeep
+
+# Ignore everything inside data/ directory
+/data/**
+# Except for subdirectories
+!/data/**/
+# And except for *.gitkeep files
+!*.gitkeep

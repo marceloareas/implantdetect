@@ -175,9 +175,19 @@ cython_debug/
 
 # Custom
 
+*.pt
+
 # Ignore everything inside data/ directory
 /data/**
 # Except for subdirectories
 !/data/**/
-# And except for *.gitkeep files
+# And except for *.gitkeep and others files
 !*.gitkeep
+!*.yaml
+
+# Ignore everything inside models/ directory
+/models/**
+# Except for subdirectories
+!/models/**/
+# And except for *.pt
+!/models/**/*.pt

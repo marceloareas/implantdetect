@@ -184,6 +184,7 @@ cython_debug/
 # And except for *.gitkeep and others files
 !*.gitkeep
 !*.yaml
+!*.txt
 
 # Ignore everything inside models/ directory
 /models/**

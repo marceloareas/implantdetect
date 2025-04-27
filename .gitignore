@@ -191,3 +191,8 @@ cython_debug/
 !/models/**/
 # And except for *.pt
 !/models/**/*.pt
+!/models/**/*.png
+!/models/**/labels.jpg
+!/models/**/labels_correlogram.jpg
+!/models/**/args.yaml
+!/models/**/results.csv

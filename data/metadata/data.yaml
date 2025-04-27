@@ -4,13 +4,13 @@ val: data/test
 test: data/test
 
 names:
-  0: ILCM 3510 #N
-  1: ILCM 3511 #N
-  2: ILCM 3513 #N
+  0: ILCM 3510N #N
+  1: ILCM 3511N #N
+  2: ILCM 3513N #N
   3: ILCM 3810
-  4: ILCM 3810 #N
-  5: ILCM 3811 #N
+  4: ILCM 3810N #N
+  5: ILCM 3811N #N
   6: ILCM 3813
   7: ILCM 3885
-  8: ILCM 4510 #N
+  8: ILCM 4510N #N
   9: ILCM 4585

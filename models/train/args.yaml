@@ -1,12 +1,12 @@
 task: detect
 mode: train
-model: yolo11n.pt
+model: yolo11m.pt
 data: ./data/metadata/data.yaml
-epochs: 10
+epochs: 100
 time: null
 patience: 100
 batch: 16
-imgsz: 640
+imgsz: 720
 save: true
 save_period: -1
 cache: false

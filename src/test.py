@@ -1,19 +1,16 @@
 from ultralytics import YOLO
 from glob import glob
 
-files = glob("./data/test/*.jpg")
-model = YOLO('./runs/detect/train45/weights/best.pt') 
+files = glob("./data/val/images/*.jpg")
+model = YOLO('./models/train3/weights/best.pt')
 
+print(files)
 for file in files:
+    print(file)
     results = model.predict(source=file,
-                            save=True,
                             conf=0.1,
                             )
     
     for result in results:
-        boxes = result.boxes
-        for box in boxes:
-            cls = box.cls.item()
-            conf = box.conf.item()
-            print(f"Classe: {cls}, Confiança: {conf:.4f}")
+        result.show()
     

@@ -1,6 +1,6 @@
 path: D:/Estudos/BCC/PCS/implantdetect
 train: data/train
-val: data/test
+val: data/val
 test: data/test
 
 names:

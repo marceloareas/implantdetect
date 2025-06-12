@@ -1,6 +1,6 @@
-task: detect
+task: obb
 mode: train
-model: yolo11s.pt
+model: yolo11m-obb.pt
 data: ./data/metadata/data.yaml
 epochs: 50
 time: null

@@ -1,6 +1,6 @@
 alembic==1.16.1
 aio-pika==9.6.2
-psycopg2-binary==2.9.10
+psycopg2-binary==2.9.12
 asyncpg==0.31.0
 bcrypt==4.0.1
 fastapi==0.136.1

@@ -58,7 +58,7 @@ services:
       - implantdetect-network
     volumes:
       - uploads_data:/app/uploads
-      - ./implantdetect-backend/logs:/app/logs:rw
+      - api_logs:/app/logs
 
   prediction:
     image: implantdetect-prediction
@@ -100,6 +100,7 @@ services:
 volumes:
   postgres_data:
   uploads_data:
+  api_logs:
   prediction_logs:
 
 networks:

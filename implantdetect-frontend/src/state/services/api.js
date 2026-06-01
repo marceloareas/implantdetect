@@ -27,8 +27,8 @@ api.interceptors.response.use(
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       if (!window.location.pathname.endsWith("/login")) {
-        // Caminho relativo (sem "/" inicial) para respeitar deploy em subpath
-        window.location.assign("login");
+        // BASE_URL já inclui a barra final (ex.: "/implantdetect/" ou "/")
+        window.location.assign(`${import.meta.env.BASE_URL}login`);
       }
     }
     return Promise.reject(error.response?.data || error);

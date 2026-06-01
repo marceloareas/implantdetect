@@ -42,12 +42,14 @@ services:
       context: .
       dockerfile: implantdetect-backend/Dockerfile
     container_name: implantdetect-api
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     environment:
       - DATABASE_URL=${DATABASE_URL:?DATABASE_URL obrigatório}
       - RABBITMQ_URL=${RABBITMQ_URL:?RABBITMQ_URL obrigatório}
       - SECRET_KEY=${SECRET_KEY:?SECRET_KEY obrigatório}
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost}
       - PYTHONPATH=/app
     depends_on:
       postgres:
@@ -91,7 +93,7 @@ services:
       dockerfile: Dockerfile
     container_name: implantdetect-frontend
     ports:
-      - "80:80"
+      - "127.0.0.1:8080:80"
     depends_on:
       - api
     networks:

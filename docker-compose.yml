@@ -6,8 +6,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-implantdetect}
       POSTGRES_USER: ${POSTGRES_USER:-implantdetect_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD obrigatório}
-    ports:
-      - "127.0.0.1:5432:5432"
+    expose:
+      - "5432"
     volumes:
       - postgres_data:/var/lib/postgresql
     networks:
@@ -21,9 +21,9 @@ services:
   rabbitmq:
     image: rabbitmq:4.3.0-management
     container_name: implantdetect-rabbitmq
-    ports:
-      - "127.0.0.1:5672:5672"
-      - "127.0.0.1:15672:15672"
+    expose:
+      - "5672"
+      - "15672"
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-implantdetect}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?RABBITMQ_PASSWORD obrigatório}

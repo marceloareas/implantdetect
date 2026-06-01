@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import {
   Upload,
   Search,
@@ -15,13 +15,13 @@ const features = [
     icon: Upload,
     title: "Upload em segundos",
     description:
-      "Arraste e solte radiografias panorâmicas (JPG, JPEG ou PNG) e inicie a análise sem configuração técnica.",
+      "Arraste e solte radiografias periapicais (JPG, JPEG ou PNG) e inicie a análise sem configuração técnica.",
   },
   {
     icon: Cpu,
     title: "Modelo treinado para implantodontia",
     description:
-      "A detecção é feita com YOLOv11 ajustado para reconhecer implantes dentários em exames panorâmicos reais.",
+      "A detecção é feita com YOLOv11 ajustado para reconhecer implantes dentários em exames periapicais reais.",
   },
   {
     icon: Search,
@@ -68,7 +68,7 @@ const Landing = () => {
 
             <p className="text-lg sm:text-xl text-primary-100 mb-8 leading-relaxed max-w-2xl">
               O ImplantDetect utiliza aprendizado de máquina para identificar e
-              classificar implantes dentários em radiografias panorâmicas,
+              classificar implantes dentários em radiografias periapicais,
               auxiliando profissionais e pacientes no diagnóstico.
             </p>
 

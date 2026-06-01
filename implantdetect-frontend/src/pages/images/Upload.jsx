@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+﻿import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Upload as UploadIcon, FileImage, X, AlertCircle } from "lucide-react";
 
@@ -90,7 +90,7 @@ const Upload = () => {
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Upload de Raio X</h1>
         <p className="text-gray-500 mt-2">
-          Envie uma imagem de radiografia panorâmica para análise por
+          Envie uma imagem de radiografia periapical para análise por
           inteligência artificial.
         </p>
       </div>
@@ -199,7 +199,7 @@ const Upload = () => {
           <div className="text-sm text-blue-700">
             <p className="font-medium mb-1">Dicas para melhores resultados:</p>
             <ul className="list-disc list-inside space-y-1 text-blue-600">
-              <li>Utilize radiografias panorâmicas de boa qualidade</li>
+              <li>Utilize radiografias periapicais de boa qualidade</li>
               <li>Certifique-se de que a imagem está nítida e bem iluminada</li>
               <li>Formatos JPG e PNG são recomendados</li>
             </ul>

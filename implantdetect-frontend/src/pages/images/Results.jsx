@@ -401,7 +401,7 @@ const ImageResults = () => {
             <Card.Header>
               <Card.Title>Detecções</Card.Title>
               <Card.Description>
-                {validResults.length} implante(s) encontrado(s)
+                Clique para ver detalhes de cada implante
               </Card.Description>
             </Card.Header>
 
@@ -444,7 +444,10 @@ const ImageResults = () => {
                         />
 
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold text-gray-900 truncate">
+                          <p
+                            className="text-sm font-semibold text-gray-900 truncate"
+                            title={result.class_name}
+                          >
                             {result.class_name}
                           </p>
                           <p className="text-xs text-gray-500">

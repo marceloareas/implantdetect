@@ -13,9 +13,6 @@ const Footer = () => {
               Implant<span className="text-primary-600">Detect</span>
             </span>
           </div>
-          <p className="text-sm text-gray-500 text-center">
-            Detecção de implantes dentários por IA
-          </p>
           <a
             href="https://github.com/marceloareas/implantdetect"
             target="_blank"

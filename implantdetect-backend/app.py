@@ -18,6 +18,7 @@ from controllers import (
     image_controller,
     process_controller,
     admin_controller,
+    label_controller,
 )
 from core.database import create_tables, database_health_check, async_session_factory
 from implantdetect_shared.daos.process_dao import ProcessDao
@@ -80,6 +81,7 @@ app.include_router(user_controller.router, prefix="/users", tags=["users"])
 app.include_router(image_controller.router, prefix="/images", tags=["images"])
 app.include_router(process_controller.router, prefix="/processing", tags=["processing"])
 app.include_router(admin_controller.router, prefix="/admin", tags=["admin"])
+app.include_router(label_controller.router, prefix="/labels", tags=["labels"])
 
 
 @app.exception_handler(RateLimitExceeded)

@@ -7,6 +7,19 @@ from implantdetect_shared.entities.label import Label
 _label_cache_by_id: dict[int, str] = {}
 _label_cache_by_name: dict[str, int] = {}
 
+# Implantes efetivamente testados pelo modelo — apenas estes são exibidos na
+# página de upload. As demais labels do seed permanecem no banco para uso futuro.
+_tested_label_names: set[str] = {
+    "SCW 3710",
+    "SCW 3711",
+    "SCW 3713",
+    "SCW 3785",
+    "ILCM 3810",
+    "Titamax Ti Cortical (4,1) 3,75 x 11,0mm",
+    "Titamax Ti Ex (4,1) 3,75 x 13,0mm",
+    "Master Easy - Grip Porous RD 3,75 x 8,5mm",
+}
+
 
 class LabelDao:
     def __init__(self, db: AsyncSession):
@@ -30,6 +43,18 @@ class LabelDao:
         if label:
             _label_cache_by_id[label.id] = str(label.name)
         return label
+
+    async def get_all_labels(self) -> list[Label]:
+        """Retorna as labels testadas/disponíveis, ordenadas por nome."""
+        result = await self.db.execute(
+            select(Label)
+            .where(Label.name.in_(_tested_label_names))
+            .order_by(Label.name)
+        )
+        labels = list(result.scalars().all())
+        for label in labels:
+            _label_cache_by_id[label.id] = str(label.name)
+        return labels
 
     async def get_labels_by_ids(self, ids: set[int]) -> list[Label]:
         """Busca múltiplas labels em uma única query — elimina N+1."""

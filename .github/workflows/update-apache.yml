@@ -1,0 +1,38 @@
+name: Auto Merge (main → main-apache)
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: update-main-apache
+  cancel-in-progress: false
+
+jobs:
+  merge-to-apache:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Merge main into main-apache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout main-apache
+
+          if git merge origin/main --no-edit; then
+            git push origin main-apache
+          else
+            echo "::error::Conflito ao mesclar main em main-apache. Resolva manualmente."
+            git merge --abort
+            exit 1
+          fi

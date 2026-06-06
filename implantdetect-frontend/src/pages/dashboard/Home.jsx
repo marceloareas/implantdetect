@@ -7,7 +7,7 @@ const quickActions = [
   {
     icon: Upload,
     title: "Enviar Raio X",
-    description: "Faça upload de uma nova imagem para análise por IA.",
+    description: "Faça upload de uma nova imagem para análise.",
     to: "/images/upload",
     color: "bg-primary-50 text-primary-600",
   },

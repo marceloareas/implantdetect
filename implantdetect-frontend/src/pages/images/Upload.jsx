@@ -1,8 +1,16 @@
-﻿import { useState, useRef } from "react";
+﻿import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Upload as UploadIcon, FileImage, X, AlertCircle } from "lucide-react";
+import {
+  Upload as UploadIcon,
+  FileImage,
+  X,
+  AlertCircle,
+  Tag,
+  ChevronDown,
+} from "lucide-react";
 
 import ImageService from "../../state/services/imageService";
+import LabelService from "../../state/services/labelService";
 import { imageFormSchema } from "../../utils/imageFormValidation";
 import Button from "../../components/ui/Button";
 import Alert from "../../components/ui/Alert";
@@ -14,8 +22,28 @@ const Upload = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
+  const [labels, setLabels] = useState([]);
+  const [labelsLoading, setLabelsLoading] = useState(true);
+  const [labelsOpen, setLabelsOpen] = useState(true);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let active = true;
+    LabelService.getLabels()
+      .then((data) => {
+        if (active) setLabels(data);
+      })
+      .catch(() => {
+        if (active) setLabels([]);
+      })
+      .finally(() => {
+        if (active) setLabelsLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const handleFile = (selectedFile) => {
     if (!selectedFile) return;
@@ -205,6 +233,53 @@ const Upload = () => {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="mt-6 bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setLabelsOpen((open) => !open)}
+          aria-expanded={labelsOpen}
+          className="w-full flex items-center justify-between gap-2 p-5 text-left hover:bg-gray-50 transition-colors"
+        >
+          <div className="flex items-center gap-2">
+            <Tag className="h-5 w-5 text-primary-500" />
+            <h2 className="font-medium text-gray-900">Implantes disponíveis</h2>
+            {!labelsLoading && labels.length > 0 && (
+              <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
+                {labels.length}
+              </span>
+            )}
+          </div>
+          <ChevronDown
+            className={`h-5 w-5 text-gray-400 shrink-0 transition-transform duration-200 ${
+              labelsOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        {labelsOpen && (
+          <div className="px-5 pb-5">
+            {labelsLoading ? (
+              <p className="text-sm text-gray-500">Carregando implantes...</p>
+            ) : labels.length === 0 ? (
+              <p className="text-sm text-gray-500">
+                Nenhum implante disponível no momento.
+              </p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {labels.map((label) => (
+                  <span
+                    key={label.id}
+                    className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-primary-50 text-primary-700 border border-primary-100"
+                  >
+                    {label.name}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

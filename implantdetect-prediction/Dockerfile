@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV YOLO_CONFIG_DIR=/app/.ultralytics
+ENV MPLCONFIGDIR=/app/.matplotlib
 
 WORKDIR /app
 
@@ -21,8 +22,8 @@ COPY implantdetect-prediction/ /app/
 
 RUN useradd -u 5678 --no-create-home --shell /bin/sh appuser && \
     chown -R appuser /app && \
-    mkdir -p /app/uploads /app/logs /app/.ultralytics && \
-    chown -R appuser:appuser /app/uploads /app/logs /app/.ultralytics
+    mkdir -p /app/uploads /app/logs /app/.ultralytics /app/.matplotlib && \
+    chown -R appuser:appuser /app/uploads /app/logs /app/.ultralytics /app/.matplotlib
 
 USER appuser
 

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/raineorshine/npm-check-updates/main/src/types/RunOptions.ts",
+  "reject": [
+    "react",
+    "react-dom",
+    "@types/react",
+    "@types/react-dom",
+    "eslint",
+    "@eslint/js",
+    "lucide-react"
+  ]
+}

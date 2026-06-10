@@ -39,12 +39,6 @@ async def create_tables():
     """Cria tabelas apenas em ambientes não-produção (dev/testes).
     Em produção, o schema é gerenciado pelo Alembic.
     """
-    if settings.ENVIRONMENT == "production":
-        logger.info(
-            "Produção detectada — schema gerenciado pelo Alembic, pulando create_all."
-        )
-        await _seed_labels_if_empty()
-        return
 
     try:
         async with async_engine.begin() as conn:

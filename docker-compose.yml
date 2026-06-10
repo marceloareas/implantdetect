@@ -93,6 +93,9 @@ services:
     build:
       context: implantdetect-frontend
       dockerfile: Dockerfile
+      args:
+        VITE_SHOW_SURVEY: ${VITE_SHOW_SURVEY:-false}
+        VITE_SURVEY_URL: ${VITE_SURVEY_URL:-}
     container_name: implantdetect-frontend
     ports:
       - "127.0.0.1:8080:80"

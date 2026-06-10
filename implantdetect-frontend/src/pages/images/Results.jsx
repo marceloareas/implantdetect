@@ -16,6 +16,7 @@ import LoadingSpinner from "../../components/ui/LoadingSpinner";
 import Alert from "../../components/ui/Alert";
 import Badge from "../../components/ui/Badge";
 import Card from "../../components/ui/Card";
+import SurveyBanner from "../../components/ui/SurveyBanner";
 
 const COLORS = [
   { stroke: "#22c55e", bg: "bg-green-500", label: "green" },
@@ -290,6 +291,8 @@ const ImageResults = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+      <SurveyBanner />
+
       <div className="flex items-center justify-between mb-8">
         <div>
           <Link

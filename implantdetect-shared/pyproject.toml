@@ -8,7 +8,7 @@ version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "pydantic>=2.13.4",
-    "SQLAlchemy>=2.0.50",
+    "SQLAlchemy>=2.0.51",
     "typing_extensions>=4.15.0",
     "fastapi>=0.136.3",
 ]

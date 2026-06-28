@@ -1,4 +1,4 @@
-alembic==1.18.4
+alembic==1.18.5
 aio-pika==9.6.2
 psycopg2-binary==2.9.12
 asyncpg==0.31.0

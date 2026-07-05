@@ -9,6 +9,6 @@ requires-python = ">=3.11"
 dependencies = [
     "pydantic>=2.13.4",
     "SQLAlchemy>=2.0.50",
-    "typing_extensions>=4.15.0",
+    "typing_extensions>=4.16.0",
     "fastapi>=0.136.3",
 ]

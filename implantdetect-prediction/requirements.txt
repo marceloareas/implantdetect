@@ -1,6 +1,6 @@
 aio-pika==9.6.2
 asyncpg==0.31.0
-pillow==12.2.0
+pillow==12.3.0
 pydantic==2.13.4
 python-dotenv==1.2.2
 SQLAlchemy==2.0.50
